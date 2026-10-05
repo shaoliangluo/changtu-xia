@@ -31,8 +31,8 @@ const files = [
 
 const distDir = join(root, "dist");
 const stagingDir = join(distDir, "staging");
-const siteDownloadDir = join(root, "site", "download");
-const siteIconsDir = join(root, "site", "icons");
+const siteDownloadDir = join(root, "docs", "download");
+const siteIconsDir = join(root, "docs", "icons");
 const zipPath = join(distDir, zipName);
 const siteZipPath = join(siteDownloadDir, zipName);
 
@@ -73,7 +73,7 @@ if (process.platform === "win32") {
 
 copyFileSync(zipPath, siteZipPath);
 
-const metaPath = join(root, "site", "download-meta.json");
+const metaPath = join(root, "docs", "download-meta.json");
 writeFileSync(
   metaPath,
   `${JSON.stringify(
