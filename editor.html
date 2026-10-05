@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>长图侠预览</title>
+    <link rel="icon" href="icons/icon32.png" />
+    <link rel="stylesheet" href="editor.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <img src="icons/icon32.png" alt="" width="28" height="28" />
+        <div>
+          <strong>长图侠</strong>
+          <span id="meta">正在读取</span>
+        </div>
+      </div>
+      <div class="tools" id="tools" hidden>
+        <button type="button" id="crop-reset">还原范围</button>
+        <button type="button" id="png" class="primary">下载 PNG</button>
+        <button type="button" id="jpg">下载 JPG</button>
+        <label class="quality" title="只影响 JPG。数值越低文件越小、越糊。">JPG 质量 <span id="quality-value">80%</span><input id="quality" type="range" min="10" max="100" value="80" /></label>
+        <button type="button" id="copy">复制图片</button>
+        <button type="button" id="pdf">导出 PDF</button>
+        <button type="button" id="zoom">实际大小</button>
+      </div>
+    </header>
+    <p id="notice" class="notice" hidden></p>
+    <p id="status" class="notice" hidden></p>
+    <main id="stage">
+      <p id="empty" class="empty">回到网页，点击工具栏上的「长图侠」图标。</p>
+    </main>
+    <footer>绿框可拖边调整，下载按框内内容导出。框选时没截进来的部分补不回来，需要回原网页重新框选。快捷键 Ctrl+Shift+Y。</footer>
+    <script type="module" src="editor.js"></script>
+  </body>
+</html>

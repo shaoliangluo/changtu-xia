@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>长图侠测试页</title>
+    <style>
+      :root { color-scheme: light; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+        background: #f7f4ee;
+        color: #1c2420;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        padding: 14px 28px;
+        background: #0e7c66;
+        color: white;
+      }
+      main { width: min(880px, calc(100% - 32px)); margin: 0 auto; padding-bottom: 80px; }
+      section {
+        height: 100vh;
+        margin-top: 16px;
+        padding: 28px;
+        border-bottom: 4px solid #14352c;
+        background: white;
+      }
+      section:nth-child(odd) { background: #e7f3ef; }
+      h1 { margin: 0; font-size: 28px; }
+      p { max-width: 62ch; line-height: 1.7; }
+      .swatch { height: 180px; margin-top: 16px; border-radius: 12px; background: linear-gradient(90deg, #0e7c66, #d8efe8); }
+      footer {
+        margin-top: 20px;
+        padding: 28px;
+        background: #14352c;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <strong>粘性顶栏 · 只应出现一次</strong>
+      <span>STICKY</span>
+    </header>
+    <main>
+      <p>这一页大约有十二屏。色带编号如果重复或断开，就是拼接错位。</p>
+    </main>
+    <script>
+      const main = document.querySelector("main");
+      for (let i = 1; i <= 12; i += 1) {
+        const section = document.createElement("section");
+        section.innerHTML = `<h1>第 ${String(i).padStart(2, "0")} 屏</h1><p>固定顶栏在第一屏之后应该消失，不应该在每一屏重复。横线必须连上，不能出现白缝。</p>`;
+        if (i % 3 === 0) {
+          const swatch = document.createElement("div");
+          swatch.className = "swatch";
+          section.append(swatch);
+        }
+        main.append(section);
+      }
+      const footer = document.createElement("footer");
+      footer.textContent = "页面底部 · 截图应该收到这里为止";
+      document.body.append(footer);
+    </script>
+  </body>
+</html>

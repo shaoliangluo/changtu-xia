@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>内部滚动测试</title>
+    <style>
+      html, body { height: 100%; margin: 0; font-family: "Segoe UI", "Microsoft YaHei", sans-serif; }
+      body { display: grid; grid-template-rows: 64px 1fr 42px; background: #10241f; color: white; }
+      header, footer { display: flex; align-items: center; padding: 0 20px; }
+      header { background: #0e7c66; }
+      #scroller {
+        overflow: auto;
+        background: #f7f4ee;
+        color: #1c2420;
+      }
+      article { height: 70vh; margin: 12px; padding: 20px; background: white; }
+      article:nth-child(odd) { background: #e7f3ef; }
+    </style>
+  </head>
+  <body>
+    <header>外壳不滚动，中间区域才滚动</header>
+    <div id="scroller"></div>
+    <footer>底部外壳</footer>
+    <script>
+      const scroller = document.querySelector("#scroller");
+      for (let i = 1; i <= 14; i += 1) {
+        const article = document.createElement("article");
+        article.textContent = `内部第 ${String(i).padStart(2, "0")} 段`;
+        scroller.append(article);
+      }
+    </script>
+  </body>
+</html>

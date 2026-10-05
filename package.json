@@ -1,0 +1,9 @@
+{
+  "name": "jietu-changtu",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node lib/plan.test.js && node lib/pdf.test.js",
+    "pack": "node scripts/pack.mjs"
+  }
+}

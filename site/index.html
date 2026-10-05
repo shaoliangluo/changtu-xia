@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>长图侠 — 浏览器整页长图扩展</title>
+    <meta
+      name="description"
+      content="长图侠：整页长图、当前屏幕或框选范围。本地处理，不读取浏览记录，不注入广告。"
+    />
+    <link rel="icon" href="./icons/icon32.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;700&family=Noto+Serif+SC:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#">
+        <img src="./icons/icon48.png" alt="" width="36" height="36" />
+        <span>长图侠</span>
+      </a>
+      <a class="nav-link" href="#install">安装步骤</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="brand-mark">长图侠</p>
+          <h1>一键截出整页长图</h1>
+          <p class="lead">
+            支持整页、当前屏幕或框选。截图与导出都在本地完成，不读取浏览记录，也不注入广告。
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" id="download" href="./download/changtu-xia-1.2.1.zip"
+              >下载扩展包</a
+            >
+            <a class="btn btn-ghost" href="#install">查看安装步骤</a>
+          </div>
+          <p class="meta">
+            当前版本 <strong id="version">1.2.1</strong> · Chrome / Edge / Firefox · 约几百 KB
+          </p>
+        </div>
+
+        <div class="visual" aria-hidden="true">
+          <div class="scroll-stage">
+            <div class="scroll-page">
+              <span class="bar mid"></span>
+              <span class="bar short"></span>
+              <span class="block"></span>
+              <span class="bar mid"></span>
+              <span class="bar"></span>
+              <span class="block"></span>
+              <span class="bar short"></span>
+              <span class="bar mid"></span>
+              <span class="block"></span>
+              <span class="bar"></span>
+            </div>
+            <div class="capture-frame"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="install">
+        <h2>安装只需一分钟</h2>
+        <p>下载 zip 后解压，按浏览器加载本地扩展即可。无需注册、无需后台。</p>
+        <ol class="steps">
+          <li>
+            <strong>下载并解压</strong>
+            <span>点上方「下载扩展包」，解压到任意固定文件夹（不要边用边删）。</span>
+          </li>
+          <li>
+            <strong>Chrome / Edge</strong>
+            <span
+              >打开 <code>chrome://extensions</code> 或 <code>edge://extensions</code>，打开「开发者模式」→「加载已解压的扩展程序」→ 选中解压后的文件夹。</span
+            >
+          </li>
+          <li>
+            <strong>Firefox</strong>
+            <span
+              >打开 <code>about:debugging#/runtime/this-firefox</code> →「临时载入附加组件」→ 选择文件夹里的
+              <code>manifest.json</code>。重启浏览器后需重新加载。</span
+            >
+          </li>
+          <li>
+            <strong>开始截图</strong>
+            <span>打开任意网页，点工具栏「长图侠」图标，或按 Ctrl+Shift+Y（Mac：Command+Shift+Y）。</span>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section" id="share">
+        <h2>分享给朋友</h2>
+        <p>扫码打开本下载页，再在电脑上下载安装。手机扫码不能直接装扩展。</p>
+        <div class="share">
+          <div class="qr-wrap" id="qr" aria-label="下载页二维码"></div>
+          <div class="share-copy">
+            <p>把这个链接发给朋友也可以：</p>
+            <code id="page-url">正在生成…</code>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      长图侠 · 本地截图扩展 · 不读取浏览记录 · 不注入广告
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
